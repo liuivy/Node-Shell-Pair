@@ -5,11 +5,12 @@ process.stdout.write('prompt > ');
 process.stdin.on('data', (data) => {
     const cmd = data.toString().trim(); //remove the newline
     
-    if (cmd === 'pwd') {
-        process.stdout.write(`${process.cwd()}`);
-        process.stdout.write('\nprompt > ');
-    } else {
+if(cmd != 'pwd' || cmd !== 'ls'){
     process.stdout.write('You typed: ' + cmd) ;
     process.stdout.write('\nprompt > ');
-    }
+}
 })
+
+const pwd = require('./pwd');
+const ls = require('./ls');
+// pwd()</
